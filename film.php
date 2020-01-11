@@ -17,13 +17,13 @@ function http_request($url){
     curl_close($ch);      
     return $output;
 }
-$kontol = http_request("https://ducky-database-movies-api.herokuapp.com/api/movies?key_token=jIPQfBjAULJBmxno43EMMlIJlLwIuIm07fYK3o3CTM9Q25SmL2iED6CBlgkirYE2&search=$judul");
-$kontol = json_decode($kontol, TRUE);
+$sl = http_request("https://ducky-database-movies-api.herokuapp.com/api/movies?key_token=jIPQfBjAULJBmxno43EMMlIJlLwIuIm07fYK3o3CTM9Q25SmL2iED6CBlgkirYE2&search=$judul");
+$sl = json_decode($sl, TRUE);
 
-$title = $kontol['data'][0]['movieInformation']['title'];
-$synopsis = $kontol['data'][0]['movieInformation']['synopsis'];
-$dateRelease = $kontol['data'][0]['movieInformation']['dateRelease'];
-$poster = $kontol['data'][0]['movieInformation']['poster'];
+$title = $sl['data'][0]['movieInformation']['title'];
+$synopsis = $sl['data'][0]['movieInformation']['synopsis'];
+$dateRelease = $sl['data'][0]['movieInformation']['dateRelease'];
+$poster = $sl['data'][0]['movieInformation']['poster'];
 
 
 echo "\n[+] Judul Film : $title\n\n";
